@@ -8,13 +8,14 @@ import { EngineeringSection } from "@/components/EngineeringSection";
 import { NoiseCancellingSection } from "@/components/NoiseCancellingSection";
 import { SoundQualitySection } from "@/components/SoundQualitySection";
 import { CTASection } from "@/components/CTASection";
+import { DeveloperSection } from "@/components/DeveloperSection";
 
 export default function Home() {
     // Track window scroll progress
     const { scrollYProgress } = useScroll();
 
     return (
-        <main className="relative min-h-[500vh] bg-[#050505]">
+        <main className="relative min-h-[600vh] bg-[#050505]">
             <Navbar />
 
             {/* The Stickiness is handled inside components via fixed positioning */}
@@ -28,6 +29,7 @@ export default function Home() {
             <NoiseCancellingSection scrollYProgress={scrollYProgress} />
             <SoundQualitySection scrollYProgress={scrollYProgress} />
             <CTASection scrollYProgress={scrollYProgress} />
+            <DeveloperSection scrollYProgress={scrollYProgress} />
         </main>
     );
 }
