@@ -42,12 +42,12 @@ export const Navbar = () => {
         >
             {/* Left: Logo */}
             <div className="flex items-center gap-2 cursor-pointer">
-                <span className="text-xl font-bold tracking-tight text-white hover:text-white/90 transition-colors">
+                <span className="text-xl font-bold tracking-tight text-white hover:text-white/90 transition-colors border-2 border-white/5 rounded-full px-2 py-1">
                     PURUSH <span className="text-secondary">AI</span>
                 </span>
                 {/* Placeholder for Sony logo if needed, sticking to generic text for now as per prompt */}
                 <span className="text-lg font-medium tracking-tight text-white">
-                    WH-1000XM6
+                   SONY WH-1000XM6
                 </span>
             </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useTransform, MotionValue } from "framer-motion";
+import { Instagram, Twitter, Linkedin, Mail, Github } from "lucide-react";
 import Ballpit from "./Ballpit";
 
 interface SectionProps {
@@ -14,15 +15,40 @@ export const DeveloperSection = ({ scrollYProgress }: SectionProps) => {
     // Add a slight scale effect for dynamic feel
     const scale = useTransform(scrollYProgress, [0.85, 1], [0.9, 1]);
 
+
+
     const socialLinks = [
-        { name: "Instagram", href: "#", color: "hover:text-[#E1306C]" },
-        { name: "GitHub", href: "#", color: "hover:text-white" },
-        { name: "Twitter", href: "#", color: "hover:text-[#1DA1F2]" },
-        { name: "LinkedIn", href: "#", color: "hover:text-[#0A66C2]" },
-        { name: "Mail", href: "mailto:hello@example.com", color: "hover:text-secondary" },
+        {
+            name: "Instagram",
+            href: "https://www.instagram.com/uttam__purush_/",
+            icon: <Instagram className="w-6 h-6" />,
+            color: "hover:text-[#E1306C]"
+        },
+        {
+            name: "GitHub",
+            href: "https://github.com/Purushotham-Prajapati-24",
+            icon: <Github className="w-6 h-6" />,
+            color: "hover:text-white"
+        },
+        {
+            name: "X (Twitter)",
+            href: "https://x.com/uttam_purush_18",
+            icon: <Twitter className="w-6 h-6" />,
+            color: "hover:text-[#1DA1F2]"
+        },
+        {
+            name: "LinkedIn",
+            href: "https://www.linkedin.com/in/purushotham-prajapati-4785b031b/",
+            icon: <Linkedin className="w-6 h-6" />,
+            color: "hover:text-[#0A66C2]"
+        },
+        {
+            name: "Mail",
+            href: "mailto:purushothothamprajapati7473@gmail.com",
+            icon: <Mail className="w-6 h-6" />,
+            color: "hover:text-secondary"
+        },
     ];
-
-
 
     return (
         <motion.div
@@ -31,7 +57,11 @@ export const DeveloperSection = ({ scrollYProgress }: SectionProps) => {
         >
             {/* Background Ballpit */}
             <div className="absolute inset-0 z-0 opacity-40">
-                <Ballpit count={40} followCursor={true} />
+                <Ballpit count={80}
+                    gravity={0.1}
+                    friction={0.99975}
+                    wallBounce={2}
+                    followCursor={true} />
             </div>
 
             <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-transparent to-black pointer-events-none" />
@@ -86,10 +116,15 @@ export const DeveloperSection = ({ scrollYProgress }: SectionProps) => {
                         <a
                             key={link.name}
                             href={link.href}
-                            className={`text-lg font-medium text-white/40 transition-colors duration-300 ${link.color} relative group`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`p-3 rounded-full bg-white/5 border border-white/5 hover:bg-white/10 hover:scale-110 transition-all duration-300 ${link.color} group relative`}
+                            aria-label={link.name}
                         >
-                            {link.name}
-                            <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full" />
+                            {link.icon}
+                            <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs text-white/40 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                                {link.name}
+                            </span>
                         </a>
                     ))}
                 </motion.div>
@@ -99,14 +134,14 @@ export const DeveloperSection = ({ scrollYProgress }: SectionProps) => {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.6 }}
-                    className="absolute bottom-8 left-0 right-0 text-center"
+                    className="text-center pt-12"
                 >
                     <p className="text-white/20 text-sm">
                         © 2026 Uttam Purush. All Rights Reserved.
                     </p>
                 </motion.div>
 
-            </div>
-        </motion.div>
+            </div >
+        </motion.div >
     );
 };
