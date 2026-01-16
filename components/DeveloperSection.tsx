@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useTransform, MotionValue } from "framer-motion";
+import Ballpit from "./Ballpit";
 
 interface SectionProps {
     scrollYProgress: MotionValue<number>;
@@ -21,12 +22,21 @@ export const DeveloperSection = ({ scrollYProgress }: SectionProps) => {
         { name: "Mail", href: "mailto:hello@example.com", color: "hover:text-secondary" },
     ];
 
+
+
     return (
         <motion.div
             style={{ y, opacity, scale }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-xl"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-[#050505] overflow-hidden"
         >
-            <div className="text-center space-y-12 max-w-4xl px-6">
+            {/* Background Ballpit */}
+            <div className="absolute inset-0 z-0 opacity-40">
+                <Ballpit count={40} followCursor={true} />
+            </div>
+
+            <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-transparent to-black pointer-events-none" />
+
+            <div className="relative z-20 text-center space-y-12 max-w-4xl px-6 bg-black/20 backdrop-blur-sm p-12 rounded-3xl border border-white/5 shadow-2xl">
 
                 {/* Header / Brand */}
                 <div className="space-y-4">
